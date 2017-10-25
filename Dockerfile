@@ -1,5 +1,5 @@
 FROM alpine:3.6
-RUN export VERSION=5.2.0.224 && \
+RUN export VERSION=5.4.0.201 && \
     apk update && \
     apk upgrade && \
     apk add --no-cache --virtual .build-deps curl build-base linux-headers cmake libtool python2 perl && \
