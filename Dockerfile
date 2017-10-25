@@ -15,5 +15,4 @@ RUN export VERSION=5.2.0.224 && \
     rm -rf mono-$VERSION && \
     apk del .build-deps && \
     apk add libgcc
-ENTRYPOINT ["mono"]
-CMD ["--version"]
+ENTRYPOINT ["/bin/sh"]
