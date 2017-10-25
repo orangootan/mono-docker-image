@@ -2,7 +2,7 @@ FROM alpine:3.6
 RUN export VERSION=5.4.0.201 && \
     apk update && \
     apk upgrade && \
-    apk add --no-cache --virtual .build-deps curl build-base linux-headers cmake libtool python2 perl && \
+    apk add --no-cache --virtual .build-deps curl build-base linux-headers cmake libtool python2 perl zlib-dev && \
     curl -O https://download.mono-project.com/sources/mono/mono-$VERSION.tar.bz2 && \
     tar xvf mono-$VERSION.tar.bz2 && \
     cd mono-$VERSION && \
@@ -14,5 +14,5 @@ RUN export VERSION=5.4.0.201 && \
     rm mono-$VERSION.tar.bz2 && \
     rm -rf mono-$VERSION && \
     apk del .build-deps && \
-    apk add libgcc
+    apk add libgcc zlib
 ENTRYPOINT ["/bin/sh"]
