@@ -1,6 +1,6 @@
 FROM alpine:3.7
 RUN apk upgrade --no-cache
-RUN export VERSION=5.10.1.47 && \
+RUN export VERSION=5.12.0.226 && \
     apk add --no-cache --virtual .build-deps curl build-base linux-headers cmake libtool python2 perl zlib-dev && \
     curl -O https://download.mono-project.com/sources/mono/mono-$VERSION.tar.bz2 && \
     tar xvf mono-$VERSION.tar.bz2 && \
