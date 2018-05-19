@@ -5,7 +5,9 @@ RUN export VERSION=5.10.1.47 && \
     curl -O https://download.mono-project.com/sources/mono/mono-$VERSION.tar.bz2 && \
     tar xvf mono-$VERSION.tar.bz2 && \
     cd mono-$VERSION && \
-    ./configure --prefix=/usr/local && \
+    ./configure --prefix=/usr/local \
+                --enable-minimal=profiler,debug,logging,com \
+                --with-moonlight=no && \
     export CPU_COUNT=`awk '/^processor/{n+=1}END{print n}' /proc/cpuinfo` && \
     make --jobs=$CPU_COUNT && \
     make install && \
